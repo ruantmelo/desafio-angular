@@ -1,0 +1,14 @@
+<div>
+  <div>
+    Buscar frequência por nome
+  </div>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmitForm()">
+    <label for="name">Nome</label>
+    <input id="name" type="text" formControlName="name">
+    <div>
+      <button>Cancelar</button>
+      <button type="submit">Buscar</button>
+    </div>
+  </form>
+
+</div>
