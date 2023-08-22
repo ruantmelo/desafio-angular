@@ -2,22 +2,25 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { NameFrequency } from './name-frequency';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { Observable, catchError, of, reduce, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NamesService {
+export class NameService {
   baseUrl = "https://servicodados.ibge.gov.br/api/v2/censos/nomes"
   constructor(private http: HttpClient) { }
 
   getNameFrequency(name: string): Observable<NameFrequency | undefined>{
     console.log(`NamesService: getNameFrequency(${name})`)
-    return this.http.get<NameFrequency>(`${this.baseUrl}/${name}`)
-    // .pipe(
-    //   tap(_ => this.log(`fetched name=${name}`)),
-    //   catchError(this.handleError<undefined>('getNameFrequency', undefined))
-    // )
+    return this.http.get<NameFrequency[]>(`${this.baseUrl}/${name}`)
+    .pipe(
+      tap(_ => this.log(`fetched name=${name}`)),
+      tap((response) => response[0]),
+      // Supporting only the first result (first name when using "|")
+      reduce((acc, cur) => cur[0] || undefined, {} as NameFrequency),
+      catchError(this.handleError<undefined>('getNameFrequency', undefined))
+    )
   }
   private log(message: string) {
     console.log(`NamesService: ${message}`);

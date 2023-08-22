@@ -1,0 +1,57 @@
+.box-title{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: white;
+  svg{
+    fill: currentColor;
+    cursor: pointer;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+td, th {
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+td{
+  font-weight: 400;
+}
+
+thead tr {
+  background-color: white;
+  // border-bottom: 1px solid black;
+}
+
+thead th {
+  border-top: 1px solid black;
+}
+
+tr:nth-child(odd){
+  background-color: var(--light-gray);
+}
+
+tr:nth-child(even){
+  background-color: white;
+}
+
+tfoot{
+  & td:first-child{
+    text-align: left;
+    font-weight: bold;
+  }
+
+  & td:last-child{
+    font-weight: bold;
+  }
+}
+

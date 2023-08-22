@@ -3,6 +3,8 @@ export interface NameFrequency {
   localidade: string;
   // sexo: string;
   // frequencia: number;
-
-
+  res: {
+    periodo: string;
+    frequencia: number;
+  }[]
 }

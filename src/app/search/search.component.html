@@ -1,0 +1,17 @@
+<app-box>
+  <div id="box-title">
+    Buscar frequência por nome
+  </div>
+  <form id='box-content' [formGroup]="searchForm" (ngSubmit)="onSubmitForm()">
+    <label for="name">Nome</label>
+    <input id="name" type="text" formControlName="name">
+    <div class='input-error' *ngIf="isSubmitted && name.errors?.['required']">
+      Name is required.
+    </div>
+    <div class="container-buttons">
+      <button type="reset" (click)="clearForm()">Cancelar</button>
+      <button type="submit">Buscar</button>
+    </div>
+  </form>
+
+</app-box>

@@ -1,0 +1,23 @@
+.container{
+  max-width: 450px;
+  background-color: white;
+
+  border-radius: 0.6rem;
+  margin: auto auto;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.box-title{
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0.2rem 0.2rem 0 0;
+
+  margin-bottom: 1rem;
+}
+
+.box-content{
+  padding: 1.2rem;
+}
